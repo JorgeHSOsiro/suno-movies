@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { Main } from './pages/Main';
 
 import './App.scss';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path='/' component={ Main } />
         </Switch>
       </main>
+      <Footer />
     </div>
   );
 }

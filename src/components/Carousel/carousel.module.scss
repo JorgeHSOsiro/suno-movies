@@ -1,0 +1,12 @@
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-size: 25px;
+  }
+}

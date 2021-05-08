@@ -1,0 +1,37 @@
+.featuredContainer {
+  background-color: var(--black);
+  height: 702px;
+  width: 100%;
+  mix-blend-mode: normal;
+  font-family: Poppins, sans-serif;
+
+  border-bottom: 3px solid var(--pink);
+}
+
+.featuredSection {
+  color: var(--white);
+  top: 107px;
+  position: absolute;
+  text-transform: uppercase;
+  font-size: 23px;
+  line-height: 34.5px;
+  padding: 90px 0;
+  margin-left: 290px;
+
+  span {
+    height: 15px;
+    width: 15px;
+    background-color: var(--pink2);
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  h1 {
+    font-weight: 300;
+  }
+
+  strong {
+    font-weight: 600;
+  }
+}
