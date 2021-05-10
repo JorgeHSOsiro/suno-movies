@@ -4,7 +4,7 @@ import styles from './catalog.module.scss';
 
 export function Catalog() {
   return (
-    <div className={styles.catalogContainer}>
+    <div id="catalogo" className={styles.catalogContainer}>
       <header className={styles.headerCatalog}>
         <h1 className={styles.catalogTitle}>
           <span className={styles.dot}></span>
@@ -12,17 +12,16 @@ export function Catalog() {
         </h1>
       </header>
       <main className={styles.mainContainer}>
-          <section>
+        <section>
           <div>
-          <button type='button'>por gênero</button>
-          <button type='button'>mais populares</button>
-        </div>
-        <button type='button'>Em lista</button>
-        <div>
-            Lista de filmes
-        </div>
+            <button type="button">por gênero</button>
+            <button type="button">mais populares</button>
+          </div>
+          <button type="button">Em lista</button>
         </section>
-        
+        <section>
+          <div>Lista de filmes</div>
+        </section>
       </main>
     </div>
   );

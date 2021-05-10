@@ -1,9 +1,11 @@
 import React from 'react';
+import { Link as ScrollLink } from 'react-scroll';
 import { GoSearch } from 'react-icons/go';
 
 import styles from './header.module.scss';
 
 export function Header() {
+
   return (
     <div className={styles.headerContainer}>
       <h1 className={styles.logoFirst}>
@@ -12,14 +14,14 @@ export function Header() {
 
       <nav className={styles.linksContainer}>
         <div className={styles.linkInicio}>
-          <a href="/home" className={styles.links}>
+          <a href="/" className={styles.links}>
             INÍCIO
           </a>
         </div>
         <div className={styles.linkCat}>
-          <a href="/home" className={styles.links}>
+          <ScrollLink  className={styles.links} to="catalogo"  smooth={true} duration={500}>
             CATÁLOGO
-          </a>
+          </ScrollLink>
         </div>
         <button type="button" className={styles.searchBtn}>
           <GoSearch />
