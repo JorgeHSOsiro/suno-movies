@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Cards } from '../Cards';
-import fetchMovies from '../../services/api';
+import { fetchMovies } from '../../services/moviesApi';
 
 import styles from './catalog.module.scss';
 import moviesContext from '../../context/moviesContext';
@@ -11,8 +11,9 @@ export function Catalog() {
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
   const [pop, setPop] = useState(false);
-  const { layout, setLayout } = useContext(moviesContext);
-  const simpleArray = ['por gênero', '1', '2', '3', '4', '5'];
+  const { layout, setLayout, categories } = useContext(moviesContext);
+
+  const simpleArray = [{"id":0, "name": "por gênero"}, ...categories];
 
   useEffect(() => {
     if (!pop) {
@@ -61,7 +62,7 @@ export function Catalog() {
               onChange={(e) => setCategory(e.target.value)}
             >
               {simpleArray.map((item) => (
-                <option value={item}>{item}</option>
+                <option value={item.name}>{item.name}</option>
               ))}
             </select>
             <button type="button" onClick={() => setPop(true)}>
