@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BiPlayCircle } from 'react-icons/bi';
+import moviesContext from '../../context/moviesContext';
 
 import styles from './card.module.scss';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
 export function Cards({ thumb, title, category, rate, description }) {
+  const { layout } = useContext(moviesContext);
   return (
-    <div className={styles.cardContainer}>
+    <div
+      className={
+        layout === 'emgrid'
+          ? styles.cardContainerGrid
+          : styles.cardContainerLista
+      }
+    >
       <div className={styles.imageContainer}>
         <img src={IMG_API + thumb} alt={`thumbnail de ${title}`} />
-        <BiPlayCircle className={styles.playMovie} />
+        <div className={styles.playMovie}>
+          <BiPlayCircle className={styles.playIco} />
+        </div>
       </div>
       <div>
         <h3>{title}</h3>

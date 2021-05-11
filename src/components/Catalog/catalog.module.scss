@@ -92,10 +92,15 @@
     flex-direction: column;
     align-items: center;
 
-    .cardsContainer {
+    .cardsContainerGrid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px 244px;
+    }
+
+    .cardsContainerList {
+      display: block;
+      width: 1230px;
     }
 
     button {

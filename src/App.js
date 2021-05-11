@@ -5,10 +5,11 @@ import { Main } from './pages/Main';
 
 import './App.scss';
 import { Footer } from './components/Footer';
+import Provider from './context/provider';
 
 function App() {
   return (
-    <div>
+    <Provider>
       <Header />
       <main>
         <Switch>
@@ -16,7 +17,7 @@ function App() {
         </Switch>
       </main>
       <Footer />
-    </div>
+    </Provider>
   );
 }
 

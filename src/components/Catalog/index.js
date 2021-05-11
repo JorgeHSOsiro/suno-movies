@@ -1,26 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Cards } from '../Cards';
+import fetchMovies from '../../services/api';
+
 import styles from './catalog.module.scss';
+import moviesContext from '../../context/moviesContext';
 
 export function Catalog() {
   const [movies, setMovies] = useState([]);
   const [halfMovies, setHalfMovies] = useState([]);
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
-  const [layout, setLayout] = useState('');
+  const [pop, setPop] = useState(false);
+  const { layout, setLayout } = useContext(moviesContext);
   const simpleArray = ['por gênero', '1', '2', '3', '4', '5'];
 
   useEffect(() => {
-    fetch(
-      'https://api.themoviedb.org/3/discover/movie?api_key=38a7c1e49c7c6930df26d2861bbe98a9&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate'
-    )
-      .then((result) => result.json())
-      .then((data) => {
-        console.log(data.results);
-        setMovies(data.results);
-        setHalfMovies(data.results.slice(0, 6));
-      });
-  }, []);
+    if (!pop) {
+      fetchMovies('release_date.desc')
+        .then((result) => result.json())
+        .then((data) => {
+          setMovies(data.results);
+          if (layout === 'emgrid') {
+            setHalfMovies(data.results.slice(0, 6));
+          } else {
+            setHalfMovies(data.results.slice(0, 3));
+          }
+        });
+    } else {
+      fetchMovies('popularity.desc')
+        .then((result) => result.json())
+        .then((data) => {
+          setMovies(data.results);
+          if (layout === 'emgrid') {
+            setHalfMovies(data.results.slice(0, 6));
+          } else {
+            setHalfMovies(data.results.slice(0, 3));
+          }
+        });
+    }
+  }, [pop, layout]);
 
   const showMore = () => {
     setShow(true);
@@ -46,7 +64,9 @@ export function Catalog() {
                 <option value={item}>{item}</option>
               ))}
             </select>
-            <button type="button">mais populares</button>
+            <button type="button" onClick={() => setPop(true)}>
+              mais populares
+            </button>
           </div>
           <div>
             <select
@@ -54,13 +74,13 @@ export function Catalog() {
               value={layout}
               onChange={(e) => setLayout(e.target.value)}
             >
-              <option value="emlista">em lista</option>
-              <option value="emgrid">em grid</option>
+              <option value="emlista">em grid</option>
+              <option value="emgrid">em lista</option>
             </select>
           </div>
         </section>
         <section className={styles.listSection}>
-          <div className={styles.cardsContainer}>
+          <div className={layout === 'emgrid' ? styles.cardsContainerGrid : styles.cardsContainerList}>
             {show
               ? movies.map((movie) => (
                   <Cards
