@@ -1,13 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BiPlayCircle } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import moviesContext from '../../context/moviesContext';
 
 import styles from './card.module.scss';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-export function Cards({ thumb, title, category, rate, description }) {
+export function Cards({ id, thumb, title, category, rate, description }) {
   const [converted, setConverted] = useState('');
   const { layout, categories } = useContext(moviesContext);
   useEffect(() => {
@@ -25,11 +26,14 @@ export function Cards({ thumb, title, category, rate, description }) {
       }
     >
       <div className={styles.imageContainer}>
-        <img src={IMG_API + thumb} alt={`thumbnail de ${title}`} />
-        <div className={styles.playMovie}>
-          <BiPlayCircle className={styles.playIco} />
-        </div>
+        <Link to={`/${id}`}>
+          <img src={IMG_API + thumb} alt={`thumbnail de ${title}`} />
+          <div className={styles.playMovie}>
+            <BiPlayCircle className={styles.playIco} />
+          </div>
+        </Link>
       </div>
+
       <div>
         <h3>{title}</h3>
         <div>

@@ -1,0 +1,141 @@
+.detailsContainer {
+  height: 100%;
+  width: 100%;
+  padding: 120px;
+  color: var(--white);
+  background: var(--black);
+  font-family: Poppins;
+
+  .detailsHeader {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 170px;
+    width: 1049px;
+    height: 608px;
+    gap: 42px;
+
+    img {
+      width: 334px;
+      height: 494px;
+    }
+
+    .detailSecond {
+      h1 {
+        width: 651px;
+        height: 136px;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 60px;
+        line-height: 68px;
+        display: flex;
+        align-items: center;
+      }
+
+      .subtitleContent {
+        display: flex;
+        justify-content: space-between;
+
+        p {
+          font-style: normal;
+          font-weight: 300;
+          font-size: 24px;
+          line-height: 36px;
+          color: var(--pink2);
+        }
+
+        .rateContent {
+          display: flex;
+          align-items: baseline;
+
+          .star {
+            width: 29.76px;
+            height: 27.05px;
+            color: var(--pink2);
+          }
+
+          p {
+            color: var(--white);
+            font-weight: 400;
+            font-size: 26.4527px;
+            line-height: 40px;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+
+    h2 {
+      margin-top: 66px;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 140.5%;
+    }
+
+    p {
+      margin-top: 16px;
+      font-weight: 300;
+      font-size: 22px;
+      line-height: 140.5%;
+      color: #757575;
+    }
+  }
+
+  .videoContainer {
+    margin-left: 170px;
+    display: flex;
+    flex-direction: column;
+
+    .trailerHead {
+      width: 1033px;
+      border-bottom: 2px solid var(--pink2);
+
+      h2 {
+        font-weight: 600;
+        font-size: 29.1064px;
+        line-height: 140.5%;
+        margin-bottom: 12px;
+      }
+    }
+
+    .trailerContent {
+      width: 1033px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 32px;
+
+      iframe {
+        height: 579px;
+        margin-bottom: 8px;
+      }
+    }
+
+    .btnContainer {
+      text-align: center;
+      margin-right: 300px;
+      margin-top: 32px;
+
+      button {
+        cursor: pointer;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14.4179px;
+        line-height: 22px;
+        color: var(--white);
+
+        width: 161px;
+        height: 44.86px;
+
+        background: linear-gradient(
+            288.57deg,
+            rgba(254, 49, 137, 0.5) 5.7%,
+            rgba(255, 0, 110, 0.5) 70.08%
+          ),
+          #ff559e;
+        mix-blend-mode: normal;
+        border-radius: 3.20398px;
+      }
+    }
+  }
+}

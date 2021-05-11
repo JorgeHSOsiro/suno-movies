@@ -10,3 +10,11 @@ export const fetchMovies = async (sorted) => {
 export const fetchGenres = async () => {
   return fetch(`${moviesApi}/genre/movie/list?api_key=${API_KEY}`);
 };
+
+export const fetchMovie = async (id) => {
+  return fetch(`${moviesApi}/movie/${id}?api_key=${API_KEY}&append_to_response=videos`);
+}
+
+export const fetchVideo = async (id) => {
+  return fetch(`${moviesApi}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+}

@@ -86,6 +86,7 @@ export function Catalog() {
               ? movies.map((movie) => (
                   <Cards
                     key={movie.id}
+                    id={movie.id}
                     thumb={movie.poster_path}
                     title={movie.title}
                     category={movie.genre_ids}
@@ -96,6 +97,7 @@ export function Catalog() {
               : halfMovies.map((movie) => (
                   <Cards
                     key={movie.id}
+                    id={movie.id}
                     thumb={movie.poster_path}
                     title={movie.title}
                     category={movie.genre_ids}

@@ -3,9 +3,10 @@ import { Switch, Route } from 'react-router-dom';
 
 import { Main } from './pages/Main';
 
-import './App.scss';
-import { Footer } from './components/Footer';
 import Provider from './context/provider';
+import { Footer } from './components/Footer';
+import { Details } from './pages/Details/index';
+import './App.scss';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <main>
         <Switch>
           <Route exact path='/' component={ Main } />
+          <Route path='/:id' component={ Details } />
         </Switch>
       </main>
       <Footer />
