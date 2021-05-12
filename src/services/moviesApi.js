@@ -16,5 +16,9 @@ export const fetchMovie = async (id) => {
 }
 
 export const fetchVideo = async (id) => {
-  return fetch(`${moviesApi}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+  return fetch(`${moviesApi}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`);
+}
+
+export const fetchSearch = (query) => {
+  return fetch(`${moviesApi}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
 }

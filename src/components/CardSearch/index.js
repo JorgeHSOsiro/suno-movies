@@ -4,13 +4,13 @@ import { BiPlayCircle } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import moviesContext from '../../context/moviesContext';
 
-import styles from './card.module.scss';
+import styles from './cardSearch.module.scss';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-export function Cards({ id, thumb, title, category, rate, description }) {
+export function CardSearch({ id, thumb, title, category, rate }) {
   const [converted, setConverted] = useState('');
-  const { layout, categories } = useContext(moviesContext);
+  const { categories } = useContext(moviesContext);
 
   useEffect(() => {
     const categoryConverted = categories
@@ -18,19 +18,12 @@ export function Cards({ id, thumb, title, category, rate, description }) {
       .map((res) => res.name);
     setConverted(categoryConverted.join(', '));
   }, [categories, category]);
-  
+
   return (
-    <div
-      className={
-        layout === 'emgrid'
-          ? styles.cardContainerGrid
-          : styles.cardContainerLista
-      }
-    >
+    <div className={styles.cardContainerLista}>
       <div className={styles.imageContainer}>
         <Link to={`/${id}`}>
           <img src={IMG_API + thumb} alt={`thumbnail de ${title}`} />
-
           <div className={styles.playMovie}>
             <BiPlayCircle className={styles.playIco} />
           </div>
@@ -46,9 +39,6 @@ export function Cards({ id, thumb, title, category, rate, description }) {
         <div className={styles.rateContent}>
           <AiFillStar className={styles.star} />
           <p> {rate}</p>
-        </div>
-        <div className={styles.descContent}>
-          <p>{description}</p>
         </div>
       </div>
     </div>

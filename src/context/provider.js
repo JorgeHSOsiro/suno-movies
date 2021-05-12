@@ -5,6 +5,7 @@ import MoviesContext from './moviesContext';
 const Provider = ({ children }) => {
   const [layout, setLayout] = useState('emgrid');
   const [categories, setCategories] = useState([]);
+  const [searchActive, setSearchActive] = useState(true);
 
   useEffect(() => {
     fetchGenres()
@@ -17,6 +18,8 @@ const Provider = ({ children }) => {
     categories,
     setLayout,
     setCategories,
+    searchActive,
+    setSearchActive,
   };
 
   return (
