@@ -11,6 +11,8 @@
   font-family: Poppins, sans-serif;
   color: var(--white);
 
+  
+
   span {
     height: 15px;
     width: 15px;
@@ -18,11 +20,13 @@
     border-radius: 50%;
     display: inline-block;
     margin-right: 10px;
-    margin-left: 250px;
+    margin-left: 340px;
   }
 
   h1 {
     font-weight: 300;
+    font-size: 22px;
+    line-height: 33px;
   }
 
   strong {
@@ -44,6 +48,8 @@
 
     .firstBtnContainer {
       margin-right: 450px;
+      margin-left: 340px;
+      
     }
 
     div {
@@ -81,7 +87,7 @@
         line-height: 22px;
 
         &:hover {
-          filter: drop-shadow(0px 0px 6px #FF0772);
+          filter: drop-shadow(0px 0px 6px #ff0772);
         }
       }
     }
@@ -96,11 +102,13 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px 244px;
+      margin-left: 36px;
     }
 
     .cardsContainerList {
       display: block;
       width: 1230px;
+      margin-left: 36px;
     }
 
     button {

@@ -48,9 +48,9 @@ export function Catalog() {
   return (
     <div id="catalogo" className={styles.catalogContainer}>
       <header className={styles.headerCatalog}>
-        <h1 className={styles.catalogTitle}>
+        <h1>
           <span className={styles.dot}></span>
-          <strong className={styles.releases}>Catalogo</strong> completo
+          <strong>Catálogo</strong> completo
         </h1>
       </header>
       <main className={styles.mainContainer}>
