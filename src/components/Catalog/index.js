@@ -11,14 +11,15 @@ export function Catalog() {
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
   const [pop, setPop] = useState(false);
+  const [converted, setConverted] = useState('');
   const { layout, setLayout, categories } = useContext(moviesContext);
 
-  const simpleArray = [{"id":0, "name": "por gênero"}, ...categories];
+  const simpleArray = [{ id: 0, name: 'por gênero' }, ...categories];
 
   useEffect(() => {
-    window.scrollTo(0,0);
-    if (!pop) {
-      fetchMovies('release_date.desc')
+    window.scrollTo(0, 0);
+    if (!pop && !converted) {
+      fetchMovies('release_date.desc', 'por gênero')
         .then((result) => result.json())
         .then((data) => {
           setMovies(data.results);
@@ -28,8 +29,19 @@ export function Catalog() {
             setHalfMovies(data.results.slice(0, 3));
           }
         });
-    } else {
-      fetchMovies('popularity.desc')
+    } else if (pop) {
+      fetchMovies('popularity.desc', 'por gênero')
+        .then((result) => result.json())
+        .then((data) => {
+          setMovies(data.results);
+          if (layout === 'emgrid') {
+            setHalfMovies(data.results.slice(0, 6));
+          } else {
+            setHalfMovies(data.results.slice(0, 3));
+          }
+        });
+    } else if (converted !== '') {
+      fetchMovies('release_date.desc', converted)
         .then((result) => result.json())
         .then((data) => {
           setMovies(data.results);
@@ -40,11 +52,24 @@ export function Catalog() {
           }
         });
     }
-  }, [pop, layout]);
+    if (category !== '') {
+      const categoryConverted = categories.find(
+        (item) => category === item.name
+      );
+      setConverted(categoryConverted.id);
+      setPop(false);
+    }
+  }, [pop, layout, category, categories, converted]);
 
   const showMore = () => {
     setShow(true);
   };
+
+  const setPopularity = () => {
+    setPop(true);
+    setCategory('');
+    setConverted('');
+  }
 
   return (
     <div id="catalogo" className={styles.catalogContainer}>
@@ -66,7 +91,7 @@ export function Catalog() {
                 <option value={item.name}>{item.name}</option>
               ))}
             </select>
-            <button type="button" onClick={() => setPop(true)}>
+            <button type="button" onClick={() => setPopularity()}>
               mais populares
             </button>
           </div>
@@ -82,7 +107,13 @@ export function Catalog() {
           </div>
         </section>
         <section className={styles.listSection}>
-          <div className={layout === 'emgrid' ? styles.cardsContainerGrid : styles.cardsContainerList}>
+          <div
+            className={
+              layout === 'emgrid'
+                ? styles.cardsContainerGrid
+                : styles.cardsContainerList
+            }
+          >
             {show
               ? movies.map((movie) => (
                   <Cards

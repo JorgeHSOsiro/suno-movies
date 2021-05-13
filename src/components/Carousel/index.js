@@ -49,7 +49,6 @@ export function Carousel() {
     fetchUpcoming()
       .then((result) => result.json())
       .then((data) => {
-        console.log(data.results)
         setMovies(data.results);
       });
   }, []);
