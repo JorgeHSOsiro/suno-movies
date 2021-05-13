@@ -151,28 +151,97 @@
 @media only screen and (max-width: 360px) {
   .detailsContainer {
     width: 360px;
-    height: 1635px;
-    padding: 20px;
+    padding: 0;
+    height: 100%;
     .detailsHeader {
-      margin-top: 110px;
+      margin-top: 0;
       margin-left: 0;
       width: 321px;
       height: 978px;
       display: flex;
       flex-direction: column;
+      gap: 0;
+      padding: 8px;
 
       img {
+        margin-top: 60px;
         width: 318px;
         height: 470px;
       }
 
       .detailSecond {
-        width: 320px;
-        height: 62px;
+        h1 {
+          width: 320px;
+          height: 62px;
 
-        font-weight: bold;
-        font-size: 27px;
-        line-height: 113.5%;
+          font-size: 27px;
+          line-height: 113.5%;
+        }
+
+        .subtitleContent {
+          p {
+            font-size: 16px;
+            line-height: 24px;
+          }
+
+          .rateContent {
+            .start {
+              width: 20.76px;
+              height: 19.09px;
+            }
+            p {
+              font-size: 18.6667px;
+              line-height: 28px;
+            }
+          }
+        }
+
+        h2 {
+          margin-top: 32px;
+          font-size: 20px;
+          line-height: 140.5%;
+        }
+        p {
+          font-size: 16px;
+          line-height: 140.5%;
+        }
+      }
+    }
+    .videoContainer {
+      width: 350px;
+      margin-left: 0;
+
+      .trailerHead {
+        width: 65px;
+        h2 {
+          font-size: 20px;
+          line-height: 140.5%;
+        }
+
+        p {
+          font-size: 16px;
+          line-height: 140.5%;
+        }
+      }
+
+      .trailerContent {
+        margin-top: 0;
+        width: 350px;
+
+        iframe {
+          height: 200px;
+          margin-bottom: 8px;
+        }
+      }
+
+      .btnContainer {
+        margin-top: 0;
+        margin-right: 0;
+
+        button {
+          width: 161px;
+          height: 44.86px;
+        }
       }
     }
   }
