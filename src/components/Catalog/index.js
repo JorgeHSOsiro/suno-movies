@@ -69,7 +69,7 @@ export function Catalog() {
     setPop(true);
     setCategory('');
     setConverted('');
-  }
+  };
 
   return (
     <div id="catalogo" className={styles.catalogContainer}>
@@ -91,7 +91,11 @@ export function Catalog() {
                 <option value={item.name}>{item.name}</option>
               ))}
             </select>
-            <button type="button" onClick={() => setPopularity()}>
+            <button
+              className={styles.popular}
+              type="button"
+              onClick={() => setPopularity()}
+            >
               mais populares
             </button>
           </div>

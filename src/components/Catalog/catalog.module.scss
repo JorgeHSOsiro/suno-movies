@@ -75,14 +75,17 @@
         border-radius: 4px;
       }
 
-      button {
+      .popular {
         background: linear-gradient(180deg, #fe3189 0%, #fe3189 100%), #fe3189;
         mix-blend-mode: normal;
-        border-radius: 3.20398px;
+        border-radius: 4px;
+        border: 1px solid var(--pink2);
 
         font-weight: 600;
         font-size: 14.4179px;
         line-height: 22px;
+
+        
 
         &:hover {
           filter: drop-shadow(0px 0px 6px #ff0772);
