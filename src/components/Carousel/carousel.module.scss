@@ -1,12 +1,10 @@
-.carouselContainer {
-  display: flex;
-  justify-content: center;
+.sliderContainer {
+  margin-top: 36px;
+  width: 1200px;
 
-  button {
-    background-color: transparent;
-    border: none;
-    outline: none;
-    color: var(--white);
-    font-size: 25px;
+  .upcomingCards {
+    display: flex;
+    flex-direction: column;
   }
+  
 }

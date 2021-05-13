@@ -22,3 +22,7 @@ export const fetchVideo = async (id) => {
 export const fetchSearch = (query) => {
   return fetch(`${moviesApi}/search/movie?api_key=${API_KEY}&language=en-US&query=${query}&page=1&include_adult=false`);
 }
+
+export const fetchUpcoming = () => {
+  return fetch(`${moviesApi}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`);
+}
