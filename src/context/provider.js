@@ -6,6 +6,8 @@ const Provider = ({ children }) => {
   const [layout, setLayout] = useState('emgrid');
   const [categories, setCategories] = useState([]);
   const [searchActive, setSearchActive] = useState(true);
+  const [optActive, setOptActive] = useState(false);
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
     fetchGenres()
@@ -16,6 +18,10 @@ const Provider = ({ children }) => {
   const contextValue = {
     layout,
     categories,
+    optActive,
+    size,
+    setSize,
+    setOptActive,
     setLayout,
     setCategories,
     searchActive,

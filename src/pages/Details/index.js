@@ -21,7 +21,6 @@ export const Details = () => {
     fetchMovie(id)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setMovie(data);
         setCategory(data.genres.map((item) => item.name).join(', '));
       });

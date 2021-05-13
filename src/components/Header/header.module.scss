@@ -11,6 +11,15 @@
 
   font-family: Poppins, sans-serif;
   z-index: 3;
+  .burguerBtn {
+    display: none;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-size: 24px;
+  }
+
   .logoFirst {
     color: var(--white);
     font-weight: 500;
@@ -73,5 +82,40 @@
     color: var(--pink2);
 
     font-size: 24px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .headerContainer {
+    width: 100%;
+    height: 55px;
+    display: flex;
+
+    .burguerBtn {
+      display: block;
+      margin-left: 24px;
+    }
+
+    .logoFirst {
+      display: flex;
+      width: 58.81px;
+      height: 31.42px;
+      margin-left: 43px;
+      font-size: 20.9444px;
+      line-height: 31px;
+    }
+
+    .linksContainer {
+      .links {
+        color: var(--white);
+        text-decoration: none;
+        display: none;
+      }
+    }
+
+    .searchBtn {
+      font-size: 17px;
+      margin-top: 3px;
+    }
   }
 }

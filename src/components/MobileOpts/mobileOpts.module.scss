@@ -1,0 +1,14 @@
+.optsContainer {
+    background: var(--black);
+    color: var(--white);
+    position: absolute;
+    min-height: 300px;
+    margin-top: 110px;
+    display: none;
+}
+
+@media only screen and (max-width: 360px) {
+    .optsContainer {
+        display: block;
+    }
+}

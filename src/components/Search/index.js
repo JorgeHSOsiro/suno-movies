@@ -14,7 +14,6 @@ export const Search = () => {
       fetchSearch(query)
         .then((response) => response.json())
         .then((data) => {
-          console.log(data.results);
           setMovies(data.results);
         });
     }

@@ -147,3 +147,33 @@
     }
   }
 }
+
+@media only screen and (max-width: 360px) {
+  .detailsContainer {
+    width: 360px;
+    height: 1635px;
+    padding: 20px;
+    .detailsHeader {
+      margin-top: 110px;
+      margin-left: 0;
+      width: 321px;
+      height: 978px;
+      display: flex;
+      flex-direction: column;
+
+      img {
+        width: 318px;
+        height: 470px;
+      }
+
+      .detailSecond {
+        width: 320px;
+        height: 62px;
+
+        font-weight: bold;
+        font-size: 27px;
+        line-height: 113.5%;
+      }
+    }
+  }
+}
