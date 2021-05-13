@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AiFillStar } from 'react-icons/ai';
 import { BiPlayCircle } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
 import moviesContext from '../../context/moviesContext';
 
 import styles from './cardSearch.module.scss';
@@ -22,12 +21,12 @@ export function CardSearch({ id, thumb, title, category, rate }) {
   return (
     <div className={styles.cardContainerLista}>
       <div className={styles.imageContainer}>
-        <Link to={`/${id}`}>
+        <a href={`/${id}`}>
           <img src={IMG_API + thumb} alt={`thumbnail de ${title}`} />
           <div className={styles.playMovie}>
             <BiPlayCircle className={styles.playIco} />
           </div>
-        </Link>
+        </a>
       </div>
 
       <div>

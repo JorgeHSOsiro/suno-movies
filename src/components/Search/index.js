@@ -22,8 +22,8 @@ export const Search = () => {
 
   return (
     <div>
-      <div className={styles.searchBox}>
-        <div className={styles.searchContainer}>
+      <div className={ styles.searchBox }>
+        <div className={ styles.searchContent }>
           <label htmlFor="searchInput">
             <input
               onChange={(e) => setQuery(e.target.value)}
@@ -32,20 +32,20 @@ export const Search = () => {
               id="searchInput"
             />
           </label>
-          <div className={styles.moviesContainer}>
+          <div className={ styles.moviesContainer }>
             {movies.map((movie) => (
               <CardSearch
-                id={movie.id}
-                thumb={movie.poster_path}
-                title={movie.title}
-                category={movie.genre_ids}
-                rate={movie.vote_average}
+                id={ movie.id }
+                thumb={ movie.poster_path }
+                title={ movie.title }
+                category={ movie.genre_ids }
+                rate={ movie.vote_average }
               />
             ))}
           </div>
         </div>
       </div>
-      <div className={styles.searchOppacity}></div>
+      <div className={ styles.searchOppacity }></div>
     </div>
   );
 };

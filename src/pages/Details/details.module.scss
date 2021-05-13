@@ -8,9 +8,9 @@
 
   .detailsHeader {
     display: flex;
-    margin-top: 10px;
-    margin-left: 170px;
-    width: 1049px;
+    margin-top: 50px;
+    margin-left: 220px;
+    width: 1170px;
     height: 608px;
     gap: 42px;
 
@@ -30,6 +30,14 @@
         line-height: 68px;
         display: flex;
         align-items: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover {
+          white-space: normal;
+          overflow: visible;
+        }
       }
 
       .subtitleContent {
@@ -82,12 +90,12 @@
   }
 
   .videoContainer {
-    margin-left: 170px;
+    margin-left: 220px;
     display: flex;
     flex-direction: column;
 
     .trailerHead {
-      width: 1033px;
+      width: 1170px;
       border-bottom: 2px solid var(--pink2);
 
       h2 {
@@ -99,7 +107,7 @@
     }
 
     .trailerContent {
-      width: 1033px;
+      width: 1170px;
       display: flex;
       flex-direction: column;
       margin-top: 32px;

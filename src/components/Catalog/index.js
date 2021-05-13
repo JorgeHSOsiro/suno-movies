@@ -16,6 +16,7 @@ export function Catalog() {
   const simpleArray = [{"id":0, "name": "por gênero"}, ...categories];
 
   useEffect(() => {
+    window.scrollTo(0,0);
     if (!pop) {
       fetchMovies('release_date.desc')
         .then((result) => result.json())
