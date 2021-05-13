@@ -94,7 +94,7 @@
   .imageContainer {
     position: relative;
     width: 50%;
-    
+
     img {
       display: block;
       width: 156.74px;
@@ -168,6 +168,70 @@
       overflow: hidden;
       text-overflow: ellipsis;
       line-height: 19px;
+    }
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .cardContainerGrid {
+    position: relative;
+    width: 309px;
+    height: 351.27px;
+    gap: 10px;
+
+    .imageContainer {
+      width: 129px;
+      height: 183.33px;
+      img {
+        width: 129px;
+        height: 183.33px;
+      }
+      .playMovie {
+        width: 130px;
+        height: 183.33px;
+        transform: translate(-50%, -50%);
+      }
+      .playIco {
+        top: 40%;
+        left: 30%;
+      }
+    }
+    .headerContainer {
+      position: absolute;
+      margin-top: 8px;
+
+      h3 {
+        font-size: 21.1549px;
+        line-height: 120.3%;
+      }
+      .category {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 18px;
+      }
+      .rateContent {
+        .star {
+          width: 13.63px;
+          height: 11.89px;
+        }
+        p {
+          font-size: 12.1156px;
+          line-height: 18px;
+        }
+      }
+    }
+
+    .descContent {
+      height: 114.45px;
+      position: absolute;
+      top: 190px;
+      left: 5px;
+
+      p {
+        font-size: 12.5006px;
+        line-height: 19px;
+        color: #9f9fa0;
+      }
     }
   }
 }

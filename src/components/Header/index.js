@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import { GoSearch } from 'react-icons/go';
 import { BiMenu } from 'react-icons/bi';
@@ -23,8 +23,7 @@ export function Header() {
   useEffect(() => {
     const windowSize = window.innerWidth;
     setSize(windowSize);
-    console.log(windowSize);
-  }, [size]);
+  }, [setSize]);
 
   const dropOpts = () => {
     setOptActive(!optActive);

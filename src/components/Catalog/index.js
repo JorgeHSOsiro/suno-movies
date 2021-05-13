@@ -99,7 +99,7 @@ export function Catalog() {
               mais populares
             </button>
           </div>
-          <div>
+          <div className={styles.secBtnContainer}>
             <select
               className={styles.selectOpt}
               value={layout}

@@ -32,6 +32,7 @@ export function Cards({ id, thumb, title, category, rate, description }) {
           : styles.cardContainerLista
       }
     >
+      
       <div className={styles.imageContainer}>
         <Link to={`/${id}`}>
           <img src={poster} alt={`thumbnail de ${title}`} />
@@ -43,15 +44,15 @@ export function Cards({ id, thumb, title, category, rate, description }) {
       </div>
 
       <div>
-        <h3>{title}</h3>
-        <div>
+        <div className={styles.headerContainer}>
+          <h3>{title}</h3>
           <p className={styles.category}>{converted}</p>
+          <div className={styles.rateContent}>
+            <AiFillStar className={styles.star} />
+            <p> {rate}</p>
+          </div>
         </div>
 
-        <div className={styles.rateContent}>
-          <AiFillStar className={styles.star} />
-          <p> {rate}</p>
-        </div>
         <div className={styles.descContent}>
           <p>{description}</p>
         </div>
