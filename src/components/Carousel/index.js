@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { fetchUpcoming } from '../../services/moviesApi';
 
-import './carousel.css';
+import styles from './carousel.module.scss';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CardCarousel } from '../CardCarousel';
@@ -23,7 +23,7 @@ function SampleNextArrow(props) {
             width: '35px',
             height: '40px',
             color: 'white',
-            right: '10px',
+            right: '15px',
           }}
           onClick={onClick}
         />
@@ -36,6 +36,7 @@ function SampleNextArrow(props) {
             width: '35px',
             height: '40px',
             color: 'white',
+            right: '-20px',
           }}
           onClick={onClick}
         />
@@ -90,7 +91,7 @@ export function Carousel() {
   };
 
   return (
-    <>
+    <div className={styles.sliderContainer}>
       {size <= 360 ? (
         <Slider {...settingsMobile}>
           {movies.map((movie) => (
@@ -118,6 +119,6 @@ export function Carousel() {
           ))}
         </Slider>
       )}
-    </>
+    </div>
   );
 }
