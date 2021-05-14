@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
-import { fetchUpcoming } from '../../services/moviesApi';
+import { fetchMovies } from '../../services/moviesApi';
 
 import styles from './carousel.module.scss';
 import 'slick-carousel/slick/slick.css';
@@ -67,7 +67,7 @@ export function Carousel() {
   const { size } = useContext(moviesContext);
 
   useEffect(() => {
-    fetchUpcoming()
+    fetchMovies('release_date.desc', 'por gênero')
       .then((result) => result.json())
       .then((data) => {
         setMovies(data.results);
