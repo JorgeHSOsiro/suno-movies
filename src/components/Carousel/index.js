@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { fetchUpcoming } from '../../services/moviesApi';
 
-import styles from './carousel.module.scss';
+import'./carousel.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CardCarousel } from '../CardCarousel';
@@ -14,28 +14,32 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div>
-    {size <= 360 ? <BsChevronRight
-      className={className}
-      style={{
-        ...style,
-        display: 'block',
-        width: '35px',
-        height: '40px',
-        color: 'white',
-        right: '90px',
-      }}
-      onClick={onClick}
-    /> : <BsChevronRight
-    className={className}
-    style={{
-      ...style,
-      display: 'block',
-      width: '35px',
-      height: '40px',
-      color: 'white',
-    }}
-    onClick={onClick}
-  />}
+      {size <= 360 ? (
+        <BsChevronRight
+          className={className}
+          style={{
+            ...style,
+            display: 'block',
+            width: '35px',
+            height: '40px',
+            color: 'white',
+            right: '10px',
+          }}
+          onClick={onClick}
+        />
+      ) : (
+        <BsChevronRight
+          className={className}
+          style={{
+            ...style,
+            display: 'block',
+            width: '35px',
+            height: '40px',
+            color: 'white',
+          }}
+          onClick={onClick}
+        />
+      )}
     </div>
   );
 }
@@ -86,7 +90,7 @@ export function Carousel() {
   };
 
   return (
-    <div className={styles.sliderContainer}>
+    <>
       {size <= 360 ? (
         <Slider {...settingsMobile}>
           {movies.map((movie) => (
@@ -112,6 +116,6 @@ export function Carousel() {
           ))}
         </Slider>
       )}
-    </div>
+    </>
   );
 }

@@ -10,9 +10,7 @@ export function Featured() {
         <h1>
           <span></span><strong>Lançamentos</strong> da semana
         </h1>
-        <div>
-            <Carousel />
-        </div>
+        <Carousel />
       </section>
     </div>
   );
