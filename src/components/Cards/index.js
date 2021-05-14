@@ -32,10 +32,16 @@ export function Cards({ id, thumb, title, category, rate, description }) {
           : styles.cardContainerLista
       }
     >
-      
       <div className={styles.imageContainer}>
         <Link to={`/${id}`}>
-          <img src={poster} alt={`thumbnail de ${title}`} />
+          {!poster ? (
+            <img
+              src="https://via.placeholder.com/300/000000/FFFFFF/?text=Suno%20Movies%20"
+              alt={`thumbnail de ${title}`}
+            />
+          ) : (
+            <img src={poster} alt={`thumbnail de ${title}`} />
+          )}
 
           <div className={styles.playMovie}>
             <BiPlayCircle className={styles.playIco} />
