@@ -7,6 +7,7 @@ import styles from './details.module.scss';
 import { Link } from 'react-router-dom';
 import moviesContext from '../../context/moviesContext';
 import { Search } from '../../components/Search';
+import { MobileOpts } from '../../components/MobileOpts';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
@@ -15,7 +16,7 @@ export const Details = () => {
   const [category, setCategory] = useState([]);
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
-  const { searchActive } = useContext(moviesContext);
+  const { searchActive, optActive } = useContext(moviesContext);
 
   useEffect(() => {
     fetchMovie(id)
@@ -33,6 +34,7 @@ export const Details = () => {
 
   return (
     <div>
+      {!optActive && <MobileOpts />}
       {!searchActive && <Search />}
       <div className={styles.detailsContainer}>
         <div className={styles.detailsHeader}>

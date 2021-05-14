@@ -1,14 +1,49 @@
 .optsContainer {
-    background: var(--black);
-    color: var(--white);
-    position: absolute;
-    min-height: 300px;
-    margin-top: 110px;
-    display: none;
+  background: var(--black);
+
+  position: absolute;
+  min-height: 300px;
+  margin-top: 55px;
+  display: none;
+  .btnContainer {
+    display: flex;
+    flex-direction: column;
+    animation: growDown 0.45s ease-in-out forwards;
+    transform-origin: top center;
+
+    .links {
+      color: var(--white);
+      text-decoration: none;
+      font-family: Poppins, sans-serif;
+      text-transform: uppercase;
+      background: var(--black);
+      color: var(--white);
+      width: 100px;
+      height: 50px;
+      border: 1px solid var(--black2);
+      cursor: pointer;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
 }
 
 @media only screen and (max-width: 360px) {
-    .optsContainer {
-        display: block;
-    }
+  .optsContainer {
+    display: block;
+  }
 }

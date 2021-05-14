@@ -88,7 +88,7 @@ export function Catalog() {
               onChange={(e) => setCategory(e.target.value)}
             >
               {simpleArray.map((item) => (
-                <option value={item.name}>{item.name}</option>
+                <option key={item.id} value={item.name}>{item.name}</option>
               ))}
             </select>
             <button

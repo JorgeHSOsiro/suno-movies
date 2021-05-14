@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { fetchUpcoming } from '../../services/moviesApi';
 
-import'./carousel.css';
+import './carousel.css';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { CardCarousel } from '../CardCarousel';
@@ -95,6 +95,7 @@ export function Carousel() {
         <Slider {...settingsMobile}>
           {movies.map((movie) => (
             <CardCarousel
+              key={movie.id}
               id={movie.id}
               thumb={movie.poster_path}
               title={movie.title}
@@ -107,6 +108,7 @@ export function Carousel() {
         <Slider {...settings}>
           {movies.map((movie) => (
             <CardCarousel
+              key={movie.id}
               id={movie.id}
               thumb={movie.poster_path}
               title={movie.title}

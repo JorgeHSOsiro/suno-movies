@@ -9,7 +9,7 @@ export function Main() {
   const { searchActive, optActive } = useContext(moviesContext);
   return (
     <div>
-      {optActive && <MobileOpts />}
+      {!optActive && <MobileOpts />}
       {!searchActive && <Search />}
       <Featured />
       <Catalog />
