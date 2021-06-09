@@ -1,4 +1,6 @@
-const API_KEY = '38a7c1e49c7c6930df26d2861bbe98a9';
+require('dotenv').config();
+
+const API_KEY = process.env.REACT_APP_KEY;
 const moviesApi = 'https://api.themoviedb.org/3';
 
 export const fetchMovies = async (sorted, genre) => {
