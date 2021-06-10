@@ -8,15 +8,25 @@ import styles from './card.module.scss';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-export function Cards({ id, thumb, title, category, rate, description }) {
+interface Movie {
+  id: number;
+  title: string;
+  thumb: string;
+  rate: number;
+  description: string;
+  category: number[];
+}
+
+
+export function Cards({ id, thumb, title, category, rate, description }: Movie) {
   const [converted, setConverted] = useState('');
   const [poster, setPoster] = useState('');
   const { layout, categories } = useContext(moviesContext);
 
   useEffect(() => {
     const categoryConverted = categories
-      .filter((item) => category.includes(item.id))
-      .map((res) => res.name);
+      .filter((item: any) => category.includes(item.id))
+      .map((res: any) => res.name);
     setConverted(categoryConverted.join(', '));
 
     if (thumb) {

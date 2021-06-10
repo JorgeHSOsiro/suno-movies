@@ -7,15 +7,23 @@ import styles from './cardSearch.module.scss';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-export function CardSearch({ id, thumb, title, category, rate }) {
+interface Movie {
+  id: number;
+  title: string;
+  thumb: string;
+  rate: number;
+  category: number[];
+}
+
+export function CardSearch({ id, thumb, title, category, rate }: Movie) {
   const [converted, setConverted] = useState('');
   const [poster, setPoster] = useState('');
   const { categories } = useContext(moviesContext);
 
   useEffect(() => {
     const categoryConverted = categories
-      .filter((item) => category.includes(item.id))
-      .map((res) => res.name);
+      .filter((item: any) => category.includes(item.id))
+      .map((res: any) => res.name);
     setConverted(categoryConverted.join(', '));
 
     if (thumb) {
