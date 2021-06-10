@@ -11,19 +11,39 @@ import { MobileOpts } from '../../components/MobileOpts';
 
 const IMG_API = 'https://image.tmdb.org/t/p/w1280';
 
-export const Details = () => {
-  const [movie, setMovie] = useState({});
-  const [category, setCategory] = useState([]);
-  const [videos, setVideos] = useState([]);
-  const { id } = useParams();
-  const { searchActive, optActive } = useContext(moviesContext);
+interface ParamTypes {
+  id: string;
+}
 
+interface Genre {
+  name: string;
+}
+
+interface Movie {
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+}
+
+interface Video {
+  path: string;
+  key: string;
+}
+
+export const Details = () => {
+  const [movie, setMovie] = useState<Movie>();
+  const [category, setCategory] = useState<Genre[]>([]);
+  const [videos, setVideos] = useState<Video[]>([]);
+  const { id } = useParams<ParamTypes>();
+  const { searchActive, optActive } = useContext(moviesContext);
+  
   useEffect(() => {
     fetchMovie(id)
       .then((response) => response.json())
       .then((data) => {
         setMovie(data);
-        setCategory(data.genres.map((item) => item.name).join(', '));
+        setCategory(data.genres.map((item: any) => item.name).join(', '));
       });
     fetchVideo(id)
       .then((response) => response.json())
@@ -41,21 +61,21 @@ export const Details = () => {
           <div>
             <img
               className={styles.poster}
-              src={IMG_API + movie.poster_path}
-              alt={movie.title}
+              src={IMG_API + movie?.poster_path}
+              alt={movie?.title}
             />
           </div>
           <div className={styles.detailSecond}>
-            <h1>{movie.title}</h1>
+            <h1>{movie?.title}</h1>
             <div className={styles.subtitleContent}>
               <p>{category}</p>
               <div className={styles.rateContent}>
                 <AiFillStar className={styles.star} />
-                <p>{movie.vote_average}</p>
+                <p>{movie?.vote_average}</p>
               </div>
             </div>
             <h2>Sinopse</h2>
-            <p>{movie.overview}</p>
+            <p>{movie?.overview}</p>
           </div>
         </div>
         <div className={styles.videoContainer}>
@@ -67,7 +87,7 @@ export const Details = () => {
               <iframe
                 src={`https://www.youtube.com/embed/${video.key}`}
                 frameBorder="0"
-                title={video.name}
+                title={video.path}
               />
             ))}
           </div>
