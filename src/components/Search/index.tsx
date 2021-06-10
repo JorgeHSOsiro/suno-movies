@@ -5,9 +5,18 @@ import { CardSearch } from '../CardSearch';
 
 import styles from './search.module.scss';
 
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+  genre_ids: number[];
+}
+
 export const Search = () => {
   const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
     if (query) {

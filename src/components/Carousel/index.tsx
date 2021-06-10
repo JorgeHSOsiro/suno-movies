@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { CardCarousel } from '../CardCarousel';
 import moviesContext from '../../context/moviesContext';
 
-function SampleNextArrow(props) {
+function SampleNextArrow(props: any) {
   const { size } = useContext(moviesContext);
   const { className, style, onClick } = props;
   return (
@@ -45,7 +45,7 @@ function SampleNextArrow(props) {
   );
 }
 
-function SamplePrevArrow(props) {
+function SamplePrevArrow(props: any) {
   const { className, style, onClick } = props;
   return (
     <BsChevronLeft
@@ -62,8 +62,17 @@ function SamplePrevArrow(props) {
   );
 }
 
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+  genre_ids: number[];
+}
+
 export function Carousel() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const { size } = useContext(moviesContext);
 
   useEffect(() => {

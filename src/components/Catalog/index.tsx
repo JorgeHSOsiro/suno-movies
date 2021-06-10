@@ -5,9 +5,18 @@ import { fetchMovies } from '../../services/moviesApi';
 import styles from './catalog.module.scss';
 import moviesContext from '../../context/moviesContext';
 
+interface Movie {
+  id: number;
+  title: string;
+  poster_path: string;
+  vote_average: number;
+  overview: string;
+  genre_ids: number[];
+}
+
 export function Catalog() {
-  const [movies, setMovies] = useState([]);
-  const [halfMovies, setHalfMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
+  const [halfMovies, setHalfMovies] = useState<Movie[]>([]);
   const [show, setShow] = useState(false);
   const [category, setCategory] = useState('');
   const [pop, setPop] = useState(false);
@@ -54,7 +63,7 @@ export function Catalog() {
     }
     if (category !== '') {
       const categoryConverted = categories.find(
-        (item) => category === item.name
+        (item: any) => category === item.name
       );
       setConverted(categoryConverted.id);
       setPop(false);
