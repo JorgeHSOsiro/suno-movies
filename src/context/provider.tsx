@@ -7,11 +7,11 @@ type MovieContextProviderProps = {
 };
 
 const Provider = ({ children }: MovieContextProviderProps) => {
-  const [layout, setLayout] = useState<string>('emgrid');
+  const [layout, setLayout] = useState('emgrid');
   const [categories, setCategories] = useState([]);
-  const [searchActive, setSearchActive] = useState<boolean>(true);
-  const [optActive, setOptActive] = useState<boolean>(false);
-  const [size, setSize] = useState<number>(0);
+  const [searchActive, setSearchActive] = useState(true);
+  const [optActive, setOptActive] = useState(false);
+  const [size, setSize] = useState(0);
 
   useEffect(() => {
     fetchGenres()
