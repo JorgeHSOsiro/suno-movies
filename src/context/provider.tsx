@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactNode } from 'react';
 import { fetchGenres } from '../services/moviesApi';
 import MoviesContext from './moviesContext';
 
-const Provider = ({ children }) => {
+type MovieContextProviderProps = {
+  children: ReactNode;
+};
+
+const Provider = ({ children }: MovieContextProviderProps) => {
   const [layout, setLayout] = useState('emgrid');
   const [categories, setCategories] = useState([]);
   const [searchActive, setSearchActive] = useState(true);
@@ -15,21 +19,21 @@ const Provider = ({ children }) => {
       .then((data) => setCategories(data.genres));
   }, []);
 
-  const contextValue = {
-    layout,
-    categories,
-    optActive,
-    size,
-    setSize,
-    setOptActive,
-    setLayout,
-    setCategories,
-    searchActive,
-    setSearchActive,
-  };
-
   return (
-    <MoviesContext.Provider value={contextValue}>
+    <MoviesContext.Provider
+      value={{
+        layout,
+        categories,
+        optActive,
+        size,
+        setSize,
+        setOptActive,
+        setLayout,
+        setCategories,
+        searchActive,
+        setSearchActive,
+      }}
+    >
       {children}
     </MoviesContext.Provider>
   );
